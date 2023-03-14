@@ -73,7 +73,7 @@ window.onscroll = function () {
     }
 };
 
-document.onload = function () {
+function toggleNavbar(event) {
     //===== close navbar-collapse when a  clicked
     let navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.querySelector(".navbar-collapse");

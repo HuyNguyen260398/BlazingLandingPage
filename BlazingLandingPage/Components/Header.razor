@@ -9,7 +9,7 @@
                     <a class="navbar-brand" href="index.html">
                         <img src="assets/images/logo/hbtechservices_white.png" alt="Logo" width="60" height="60" />
                     </a>
-                    <button class="navbar-toggler">
+                    <button @ref="navLink" class="navbar-toggler">
                         <span class="toggler-icon"> </span>
                         <span class="toggler-icon"> </span>
                         <span class="toggler-icon"> </span>
@@ -90,12 +90,14 @@
 
 @code {
     private ElementReference navLink;
+    private ElementReference navToggler;
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await js.InvokeVoidAsync("menuScroll", navLink);
+            await js.InvokeVoidAsync("toggleNavbar", navLink);
         }
     }
 }
