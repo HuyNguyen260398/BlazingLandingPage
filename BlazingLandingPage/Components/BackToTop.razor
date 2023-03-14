@@ -1,0 +1,19 @@
+﻿@inject IJSRuntime js
+
+<!-- ====== Back To Top Start ====== -->
+<a @ref="buttonLink" href="javascript:void(0)" class="back-to-top">
+    <i class="lni lni-chevron-up"> </i>
+</a>
+<!-- ====== Back To Top End ====== -->
+
+@code {
+    private ElementReference buttonLink;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await js.InvokeVoidAsync("backToTop", buttonLink);
+        }
+    }
+}
